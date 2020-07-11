@@ -39,7 +39,7 @@ Route.get('/', async () => {
 Route.get('posts', 'PostsController.index')
 
 // Route post for accesing store data
-Route.post('posts', 'PostController.store')
+Route.post('posts', 'PostsController.store')
 
 // Route delete for accesing drop method
-Route.delete('posts/:id', 'PostController.drop')
+Route.delete('posts/:id', 'PostsController.drop')

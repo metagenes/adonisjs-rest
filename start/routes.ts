@@ -29,17 +29,26 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+// import PostsController from 'App/Controllers/Http/PostsController'
 
 Route.get('/', async () => {
   return { message: 'Welcome to blog post API, this REST API created using AdonisJS',
           documentation: 'Please refer to ...... for more detail about this API' }
 })
 
-// Route get for accessing index
-Route.get('posts', 'PostsController.index')
+// Route resource doc https://adonisjs.com/docs/4.1/routing#_route_resources
 
-// Route post for accesing store data
-Route.post('posts', 'PostsController.store')
+Route.resource('posts', 'PostsController')
+        .except(['update','destroy','show']) // Excluding route resouce  default name
+        .apiOnly() // for api only 
+
+// excluded route
 
 // Route delete for accesing drop method
 Route.delete('posts/:id', 'PostsController.drop')
+
+// Route to find post
+Route.get('posts/:id', 'PostsController.find')
+
+// // Route for update post
+// Route.patch('posts/:id', 'PostsController.update')

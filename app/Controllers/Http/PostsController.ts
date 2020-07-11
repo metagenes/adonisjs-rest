@@ -30,4 +30,27 @@ export default class PostsController {
         PostsController.posts = PostsController.posts.filter(p => p.id !== postId)
     }
 
+    // method to find post
+    public async find ({ params }: HttpContextContract) {
+        const postId = Number(params.id)
+        return PostsController.posts.find(p => p.id === postId)
+    }
+
+    // method to update post
+    // public async update ({ request,params }: HttpContextContract) {
+    //     const postId = Number(params.id)
+    //     const data = request.only(['title', 'content'])
+    //     const post = {
+    //         id: postId,
+    //         title: data.title,
+    //         content: data.content,
+    //     }
+
+
+    //     PostsController.posts.find(p => p.id === postId)
+    //     PostsController.posts.replace()
+    //     return post
+
+    // }
+
 }

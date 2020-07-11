@@ -1,3 +1,13 @@
+// //file: start/routes.ts
+
+// import Route from '@ioc:Adonis/Core/Route'
+
+// // Route get for accessing index
+// Route.get('posts', 'PostsController.index')
+
+// // Route post for accesing store data
+// Route.post('posts', 'PostControllers.store')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -21,5 +31,15 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => {
-  return { hello: 'world' }
+  return { message: 'Welcome to blog post API, this REST API created using AdonisJS',
+          documentation: 'Please refer to ...... for more detail about this API' }
 })
+
+// Route get for accessing index
+Route.get('posts', 'PostsController.index')
+
+// Route post for accesing store data
+Route.post('posts', 'PostController.store')
+
+// Route delete for accesing drop method
+Route.delete('posts/:id', 'PostController.drop')
